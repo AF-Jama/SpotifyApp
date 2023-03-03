@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.side-bar-link{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.side-bar-link{
+    margin: 0rem 0rem 0 0;
+    color: white;
+    /* display: block; */
+}
+
+/* .side-bar-link:nth-child(2){
+    margin: 1rem 0 0 0;
+}
+
+.side-bar-link:nth-child(3){
+    margin: 1rem 0 0 0;
+} */
+
+#side-bar-container{
+    /* display: flex; */
+}
+
+#side-bar-links-container{
+    display: flex;
+    align-items: center;
+}
+
+.side-bar-link{
+    flex: 1;
+    font-family: 'Sora', sans-serif;
+}
+
+#side-bar-container>h4::before{
+    content: '✅';
+}
+
+@media screen and (min-width:1000px){
+    #side-bar-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #side-bar-links-container{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#playlist-container{
+    margin: 1rem 0 0 0;
+    position: relative;
+}
+
+#playlist-container>hr{
+    width: 95%;
+    margin: 0.3rem auto;
+}
+
+#playlist-title-container{
+    display: flex;
+    justify-content: flex-start;
+}
+
+#playlist-title-container>h4{
+    margin: 0 0 0 0.4rem;
+}
+
+#playlist-card-container>#loading-container{
+    min-height: auto;
+}
+
+#playlist-cards-container{
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    justify-content: center;
+    position: relative;
+    row-gap: 20px; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    position: relative;
+}
+
+/* #arrow-right{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#arrow-left{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+} */
+
+#arrow-right{
+    position: absolute;
+    top: 1px;
+    right: 25px;
+    left: auto;
+}
+
+#arrow-left{
+    position: absolute;
+    top: 0;
+    left: auto;
+}
+
+@media screen and (min-width:440px){
+    #playlist-cards-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 20px;
+        justify-content: flex-start;
+    }   
+
+}
+
+@media screen and (min-width:1000px){
+    #playlist-container{
+        margin: 0;
+    }
+    
+}

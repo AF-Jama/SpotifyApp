@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:wght@600&family=Barlow:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#welcome-page-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #191414;
+}
+
+#welcome-main-container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#img-container>img{
+    height: 175px;
+    max-width: 100%;
+}
+
+#heading-container{
+    margin: 1.5rem 0;
+}
+
+#heading-container>h2{
+    color: white;
+    /* font-size: 1.5rem; */
+    font-family: 'Andada Pro', serif;
+    font-family: 'Barlow', sans-serif;
+}
+
+@media screen and (min-width:800px){
+    #img-container>img{
+        height: 250px;
+    }
+}
