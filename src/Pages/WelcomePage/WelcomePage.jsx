@@ -24,7 +24,6 @@ const WelcomePage = ()=>{
                 <div id="img-container">
                     <img id="spotify-img" src={spotifyLogo} alt="" />
                 </div>
-                <a href="/main">ggg</a>
             </main>
         </div>
     )
