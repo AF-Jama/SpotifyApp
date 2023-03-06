@@ -21,7 +21,7 @@ const Main = ()=>{
     const { data,loading:load,error } = useFetch(`https://api.spotify.com/v1/me`);
     const [content,setContent] = useState(1); // set content state
 
-    console.log(accessToken)
+    // console.log(accessToken)
 
     const setPlaylistState = ()=>{
         setContent(1);
@@ -37,7 +37,7 @@ const Main = ()=>{
 
     // console.log(size);  
     
-    console.log(isAuthenticated);
+    // console.log(isAuthenticated);
 
     const contentBar = (state)=>{
         switch (state) {
@@ -67,14 +67,14 @@ const Main = ()=>{
     }
 
     if(isAuthenticated && data){
-        console.log("auth")
+        // console.log("auth")
         return (
             <div id="main-page-container">
                 <Header/>
     
                 <main id="">
                     <div id="wrapper-container">
-                        <SideBar playlistState={setPlaylistState} artistState={setArtistState} trackState={setxState}/>
+                        <SideBar playlistState={setPlaylistState} artistState={setArtistState} trackState={setxState} data = {data}/>
                         {contentBar(content)}
                     </div>
                 </main>

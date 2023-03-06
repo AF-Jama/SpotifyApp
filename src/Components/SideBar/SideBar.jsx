@@ -4,11 +4,10 @@ import './SideBar.css';
 
 
 const SideBar = (props)=>{
-    const { data,loading,error } = useFetch('https://api.spotify.com/v1/me');
 
     return (
         <div id="side-bar-container">
-            <h4>Welcome {data?data.display_name:""}</h4>
+            <h4>Welcome {props?.data?.display_name}</h4>
             <div id="side-bar-links-container">
                 <a href="#" className="side-bar-link" onClick={props.playlistState}>Your Playlists</a>
                 <a href="#" className="side-bar-link" onClick={props.artistState}>Artists Search</a>

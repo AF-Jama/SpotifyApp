@@ -10,7 +10,7 @@ function Playlist(props) {
     const { size } = useSize();
     const { data,loading,error } = useFetch(`https://api.spotify.com/v1/users/${props.userId}/playlists?limit=${(size<600)?'5':'10'}`); // conditional chaining??
 
-    console.log(data);
+    // console.log(data);
 
     return (
         <div id='playlist-container'>

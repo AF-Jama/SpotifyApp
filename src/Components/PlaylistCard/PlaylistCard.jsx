@@ -7,7 +7,7 @@ import './PlaylistCard.css';
 function PlaylistCard(props) {
     const [active,setActive] = useState(false);
 
-    console.log(active);
+    // console.log(active);
     
     return (
         <div id='playlist-card-container' className={active?"":"normal"}>

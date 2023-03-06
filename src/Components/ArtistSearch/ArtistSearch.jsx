@@ -11,12 +11,12 @@ const ArtistSearch = (props)=>{
 
     // const artist = data.artists.items[0]; // returns artist first index
 
-    console.log(data);
+    // console.log(data);
     const image = data?.artists?.items[0]?.images[2]?.url; // returns artist image
     const name = data?.artists?.items[0]?.name; // returns artists name
     const genre = data?.artists.items[0]?.genres[0]; // returns artist genre
     const views = data?.artists.items[0]?.followers?.total; // returns artists views
-    console.log(data);
+    // console.log(data);
     // console.log(views);
     // console.log(genre);
     // console.log(name);

@@ -7,7 +7,7 @@ const useFetch = (URL)=>{
     const [error,setError] = useState(false); // sets error state
     const { accessToken } = useAuth();
     
-    console.log(`access token is ${accessToken} in useFetch hook`)
+    // console.log(`access token is ${accessToken} in useFetch hook`)
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -25,7 +25,7 @@ const useFetch = (URL)=>{
                 setLoading(false);
                 setError(false);
             }catch(error){
-                console.log(error)
+                // console.log(error)
                 setData(null)
                 setLoading(true);
                 setError(true);

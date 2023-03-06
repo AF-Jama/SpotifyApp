@@ -21,7 +21,7 @@ const AuthContextProvider = ({children})=>{
         currentTimeStamp = Math.floor(currentTimeStamp/1000); // returns current unix time stamp in seconds
 
 
-        return getCurrentDate;
+        return currentTimeStamp;
     }
     
     const expiryDate = ()=>{
@@ -38,19 +38,24 @@ const AuthContextProvider = ({children})=>{
         const cookieAccessToken = Cookies.get("access_token");
         const cookieExpiryDate = Cookies.get("expiry_date");
         const currentTimeNow = new Date();
+
+        // console.log(`cookie expiry date is ${parseInt(cookieExpiryDate)}`);
+        // console.log(getCurrentDate());
+
+        if(getCurrentDate()>parseInt(cookieExpiryDate)){
+            // triggered if current date exceeds cookie expiration date
+            // console.log("EXPIRED HIT");
+            Logout();
+        }
         
         if(cookieAccessToken){
-            console.log("HIT")
+            // console.log("HIT")
             // console.log(cookieAccessToken);
             setAccessToken(cookieAccessToken);
             setIsAuthenticated(true);
             setLoading(false);
         }
         
-        if(getCurrentDate()>parseInt(cookieExpiryDate)){
-            // triggered if current date exceeds cookie expiration date
-            Logout();
-        }
 
         if(!cookieAccessToken||!cookieExpiryDate){
             Logout();

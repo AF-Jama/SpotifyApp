@@ -10,12 +10,8 @@ function NavBar(props) {
     const [visibility,setVisibility] = useState(false); // set visibility state
     const { accessToken,isAuthenticated,Logout } = useAuth(); // use Auth hook
     const { data,loading,error  } = useFetch('https://api.spotify.com/v1/me');
-
-    console.log(data);
     
     const navLinksContainer = useRef();
-
-    console.log(accessToken);
 
     const onNavLinksContainer = (event)=>{
         event.preventDefault();
@@ -42,8 +38,6 @@ function NavBar(props) {
     const onLogoutClick = (event)=>{
         event.preventDefault();
 
-        console.log("SUCCESFULL")
-
         Logout();
     }
 
@@ -54,7 +48,7 @@ function NavBar(props) {
         <nav>
             <div id="nav-links" ref={navLinksContainer}>
                 <a href="/" className='nav-link'>Home</a>
-                <a href="https://developer.spotify.com/documentation/web-api/reference/#/" className='nav-link'>Documentation</a>
+                <a href="/main" className='nav-link'>Your Account</a>
                 <a href="https://github.com/AF-Jama/SpotifyApp" className='nav-link'>Github</a>
                 <div id="action-btn-container">
                     {isAuthenticated?<ActionButton text="Logout" onClick={onLogoutClick}/>:<ActionButton text="Login" onClick={onLoginClick}/>}
