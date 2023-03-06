@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#create-playlist-title{
+    margin: 1rem 0 0 0;
+}
+
+#create-playlist-title>h4{
+    display: flex;
+    justify-content: flex-start;
+}
+
+#create-playlist-container>h4{
+    /* margin: 0.5rem 0; */
+    margin: 0;
+}
+
+#create-playlist-container>hr{
+    margin: 0;
+}
+
+#create-playlist-form-container{
+    margin: 1rem 0 0 0;
+}
+
+.button-container{
+    margin: 1rem 0 0 0;
+}
+
+.button-container>button{
+    width: 100%;
+    max-width: 250px;
+}
+
+@media screen and (min-width:1000px){
+    .button-container{
+        margin: 3rem 0 0 0;
+    }
+}

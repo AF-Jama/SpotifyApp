@@ -10,6 +10,8 @@ function Playlist(props) {
     const { size } = useSize();
     const { data,loading,error } = useFetch(`https://api.spotify.com/v1/users/${props.userId}/playlists?limit=${(size<600)?'5':'10'}`); // conditional chaining??
 
+    console.log(data);
+
     return (
         <div id='playlist-container'>
             <div id="playlist-title-container">
@@ -29,8 +31,10 @@ function Playlist(props) {
 
                 {data &&
                 
-                data.items.map(playlist=><PlaylistCard image={playlist.images[0]?.url} name={playlist.name} public={(playlist.public)?"Public":"Private"} tracks={playlist.tracks.total}/>) // render playlist cards
-                
+                // data.items.map(playlist=><PlaylistCard image={playlist.images[0]?.url} name={playlist.name} public={(playlist.public)?"Public":"Private"} tracks={playlist.tracks.total}/>) // render playlist cards
+                data.items
+                .filter(playlist=>playlist.tracks.total!==0)
+                .map(playlist=><PlaylistCard image={playlist.images[0]?.url} name={playlist.name} public={(playlist.public)?"Public":"Private"} tracks={playlist.tracks.total}/>) // filters and map array (chaining)
                 }
 
                 

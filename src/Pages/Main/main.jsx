@@ -4,6 +4,7 @@ import SideBar from "../../Components/SideBar";
 import Playlist from "../../Components/Playlist";
 import PlayingTracks from "../../Components/PlayingTracks";
 import ArtistSearch from "../../Components/ArtistSearch/ArtistSearch";
+import CreatePlaylist from "../../Components/CreatePlaylist";
 import useAuth from "../../customHooks/useAuth";
 import useFetch from "../../customHooks/useFetch";
 import useSize from "../../customHooks/useSize";
@@ -34,7 +35,9 @@ const Main = ()=>{
         setContent(3);
     }
 
-    // console.log(size);   
+    // console.log(size);  
+    
+    console.log(isAuthenticated);
 
     const contentBar = (state)=>{
         switch (state) {
@@ -45,12 +48,12 @@ const Main = ()=>{
                 return <ArtistSearch/>;
 
             case 3:
-                return 1;
+                return <CreatePlaylist userId = {data.id}/>;
         }
     }
 
     if(!isAuthenticated){
-        return navigate('/')
+        return navigate('/');
     }
     
     if(loading && !data){

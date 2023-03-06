@@ -16,10 +16,11 @@ const ArtistSearch = (props)=>{
     const name = data?.artists?.items[0]?.name; // returns artists name
     const genre = data?.artists.items[0]?.genres[0]; // returns artist genre
     const views = data?.artists.items[0]?.followers?.total; // returns artists views
-    console.log(views);
-    console.log(genre);
-    console.log(name);
-    console.log(image);
+    console.log(data);
+    // console.log(views);
+    // console.log(genre);
+    // console.log(name);
+    // console.log(image);
 
     const onSearchChange = (event)=>{
         event.preventDefault();
@@ -42,21 +43,19 @@ const ArtistSearch = (props)=>{
                 <SearchBar onSearchChange = {onSearchChange}/>
             </div>
 
-            <div id="artist-info-container">
-                {loading||error && 
+            {loading||error && 
                 
-                <div id="loading-container">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only"></span>
-                    </div>
+            <div id="loading-container">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only"></span>
                 </div>
-            
-                }
-                
-                {(!data||error) && <p>Cannot Find artist</p>}
-                {/* {data && <ArtistCard name={}/>} */}
-                {data && <ArtistCard image={image} name={name} genres={genre} views={convert(views)}/>}
             </div>
+        
+            }
+            
+            {(!data||data.artists.items.length===0) && <p>Cannot Find artist</p>}
+            {/* {data && <ArtistCard name={}/>} */}
+            {(data && data.artists.items.length!==0) && <ArtistCard image={image} name={name} genres={genre} views={convert(views)}/>}
         </div>
     )
 }

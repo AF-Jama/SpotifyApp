@@ -53,9 +53,9 @@ function NavBar(props) {
     return (
         <nav>
             <div id="nav-links" ref={navLinksContainer}>
-                <a href="#" className='nav-link'>Home</a>
-                <a href="#" className='nav-link'>Home</a>
-                <a href="#" className='nav-link'>Github</a>
+                <a href="/" className='nav-link'>Home</a>
+                <a href="https://developer.spotify.com/documentation/web-api/reference/#/" className='nav-link'>Documentation</a>
+                <a href="https://github.com/AF-Jama/SpotifyApp" className='nav-link'>Github</a>
                 <div id="action-btn-container">
                     {isAuthenticated?<ActionButton text="Logout" onClick={onLogoutClick}/>:<ActionButton text="Login" onClick={onLoginClick}/>}
                 </div>
