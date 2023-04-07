@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -11,6 +13,42 @@
 
 .input-group>input{
     width: 100%;
+}
+
+#playlist-name{
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 0;
+    outline: 0;
+}
+
+.public-radio,.collab-radio{
+    background-color: #1DB954;
+    padding: 0.5rem 2rem;
+    border-radius: 12px;
+}
+
+.public-radio>label{
+    margin: 0 0 0 1rem;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.2rem;
+}
+
+.collab-radio>label{
+    margin: 0 0 0 1rem;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.2rem;
+}
+
+.input-group>#description{
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 0;
+    outline: 0;
+}
+
+#public-container,#collabrative-container{
+    margin: 1.5rem 0;
 }
 
 #radio-button-container{
@@ -28,21 +66,25 @@ label{
 
 @media screen and (min-width:1000px){
     #public-container{
-        display: flex;
+        /* display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        align-items: center;
+        align-items: center; */
     }   
 
     #radio-button-container{
-        display: flex;
-        flex-direction: column;
+        /* display: flex;
+        flex-direction: column; */
     }
 
     #collabrative-container{
-        display: flex;
+        /* display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        align-items: center;
+        align-items: center; */
+    }
+
+    #public-container,#collabrative-container{
+        margin: 1rem 0;
     }
 }

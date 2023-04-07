@@ -13,13 +13,13 @@ const CreatePlaylistForm = (props)=>{
             <div id="public-container">
                 <h5>Public</h5>
                 <div id="radio-button-container">
-                    <div>
+                    <div className="public-radio">
                         <input type="radio" id="true" name="public" value={true} checked onClick={props.onPublicState}/>
                         <label for="true">True</label>
                     </div>
 
-                    <div>
-                        <input type="radio" id="false" name="public" value={false} onClick={props.onPublicState}/>
+                    <div className="public-radio">
+                        <input className="public-radio" type="radio" id="false" name="public" value={false} onClick={props.onPublicState}/>
                         <label for="false">False</label>
                     </div>
                 </div>
@@ -28,12 +28,12 @@ const CreatePlaylistForm = (props)=>{
             <div id="collabrative-container">
                 <h5>Collab</h5>
                 <div id="radio-button-container">
-                    <div>
+                    <div className="collab-radio">
                         <input type="radio" id="collab-true" name="collab" value={true} onClick={props.onCollabState}/>
                         <label for="collab-true">True</label>
                     </div>
 
-                    <div>
+                    <div className="collab-radio">
                         <input type="radio" id="collab-false" name="collab" value={false} checked onClick={props.onCollabState}/>
                         <label for="collab-false">False</label>
                     </div>
