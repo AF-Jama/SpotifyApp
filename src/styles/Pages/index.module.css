@@ -1,0 +1,25 @@
+.heroBackground{
+    background-image: url('../../assets/images/hero-background-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;   
+    /* opacity: 1; */
+    background-blend-mode: saturation;
+    background-position: center;
+}
+
+
+
+
+
+
+@media screen and (min-width:768px){
+    .heroBackground{
+        background: none;
+    }
+
+    .leftImageContainer{
+        background-image: url('../../assets/images/hero-background-medium.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}
