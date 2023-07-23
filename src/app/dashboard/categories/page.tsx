@@ -17,7 +17,7 @@ interface Props{
 }
 
 const getData = async (accessToken:string)=>{
-    let res = await fetch(`https://api.spotify.com/v1/browse/categories`,{
+    let res = await fetch(`${process.env.BASE_URL}/browse/categories`,{
         headers:{
             'Authorization':` Bearer ${accessToken}`,
             'content-type':"application/json"

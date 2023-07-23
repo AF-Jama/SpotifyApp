@@ -26,7 +26,39 @@ export interface APIError{
 }
 
 export interface SingleCategory{
-        
+    playlists:{
+        href:string,
+        items:{
+            description:string,
+            external_urls:{
+                spotify:string,
+            },
+            href:string,
+            id:string,
+            name:string,
+            tracks:{
+                total:number,
+            },
+            images:{
+                width:number,
+                height:number,
+                url:string,
+            }[]
+        }[],
+
+    }
+}
+
+export interface SpotifyUser{
+    country:string,
+    display_name:string,
+    email:string,
+    images:{
+        url:string,
+        width:number,
+        height:number,
+    }[]
+
 }
 
 
