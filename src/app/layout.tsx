@@ -1,9 +1,14 @@
+"use client"
+
 import './globals.css'
+import { QueryClient, QueryClientProvider, useQuery  } from "react-query";
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import AuthContextProvider from '@/Contexts/authContext/authContextProvider';
 
 const inter = Inter({ subsets: ['latin'] })
+
+const queryClient = new QueryClient()
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-[#060125] antialiased`}>
+        <QueryClientProvider client={queryClient}>
           {children} {/* children page props */}
+        </QueryClientProvider>
       </body>
     </html>
   )

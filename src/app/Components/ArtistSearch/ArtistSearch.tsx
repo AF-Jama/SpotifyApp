@@ -1,17 +1,41 @@
 "use client"
 
 import useAuth from "@/app/customHooks/useAuth";
+import { QueryClient, QueryClientProvider, useQuery  } from "react-query";
 import { useState, useEffect, useReducer } from "react";
-import Person from '../../../assets/images/spinner.svg'
+import { nFormatter } from "@/utils/client/utils";
+import { Artist } from "@/types/types";
+import Spinner from '../../../assets/images/spinner.svg';
+import Open from '../../../assets/images/open.svg';
+import Popularity from '../../../assets/images/popularity.svg';
+import Followers from '../../../assets/images/followers.svg';
+import Genre from '../../../assets/images/genre.svg';
+import { Roboto } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
+
+const roboto = Roboto({
+    weight: '400',
+    subsets: ['latin'],
+})
 
 interface Props{
     accessToken:string
 }
 
+const queryClient = new QueryClient()
+
 
 const ArtistSearch: React.FC<Props> = ({ accessToken })=>{
-    const [query,setQuery] = useState<string>('');
+    const [query,setQuery] = useState<string>(''); // set query state
+    const { isLoading, error, data } = useQuery<Artist,Error>({queryFn:()=>fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/search?q=${query}&type=artist`,{
+        headers:{
+            'Authorization':` Bearer ${accessToken}`,
+            'content-type':"application/json"
+          }
+    }).then(res=>res.json()),queryKey:['q',query]});
+
+    console.log(isLoading);
 
 
 
@@ -22,13 +46,46 @@ const ArtistSearch: React.FC<Props> = ({ accessToken })=>{
                 <input type="text" className="w-full p-2 rounded-md border-0 outline-none" placeholder="Search for artist" onChange={(e)=>setQuery(e.target.value)}/>
             </div>
 
-            <div className={`w-[95%] max-w-lg mt-2 m-auto border-2 border-solid border-white ${(query)?"h-auto duration-75":"h-0 overflow-y-hidden transition-all duration-100"}`}>
-                <p className="text-red-700">{accessToken}</p>
-                {/* <div className="h-64 w-full">
-                    <Image src={Person} height={500} width={500} className="h-full"  alt=""/>
+            {(error) && <Image src={Spinner} className="h-100 w-100" alt=""/>}
+
+            {(isLoading) && <Image src={Spinner} className="h-20 w-20 m-auto mt-4" alt=""/>}
+
+            {(error) && <p className={`text-white text-center mt-1 ${roboto.className}`}>Could not find artist data</p>}
+
+            {
+            (data && !isLoading && !error && query) &&
+            
+            <div className={`w-[95%] max-w-lg mt-2 m-auto relative ${(query)?"max-h-[1000px] transition-all duration-300 ease-in-out":"max-h-0 overflow-y-hidden transition-all duration-300 ease-in-out"}`}>
+                {/* <p className="text-red-700">{accessToken}</p> */}
+                <div className="h-45 w-full">
+                    <Image src={data.artists?.items[0].images[0].url} className="w-full h-full" width={500} height={500} alt=""/>
                 </div>
-                <p className="text-red-600">SUCCESFULL</p> */}
+
+                <div id="artist-info-container" className="mt-2">
+                    <h1 className={`text-[#1DB954] ${roboto.className} text-lg text-center font-extrabold`}>{data.artists?.items[0].name}</h1>
+
+                    <div id="stats-container" className="grid grid-col-1 md:grid-cols-3 p-2">
+                        <div id="followers-container" className="mt-2 flex flex-row justify-center items-center gap-2">
+                            <Image src={Followers} className="w-12 h-12" alt=""/>
+                            <p className="text-white font-bold text-center text-base">{nFormatter(data.artists.items[0].followers.total,1)}</p>
+                        </div>
+                        <div id="listens-container" className="mt-2 flex flex-row justify-center items-center gap-2">
+                            <Image src={Popularity} className="w-12 h-12" alt=""/>
+                            <p className="text-white font-bold text-center text-base">{data.artists.items[0].popularity}</p>
+                        </div>
+                        <div id="popularity-container" className="mt-2 flex flex-row justify-center items-center gap-2">
+                            <Image src={Genre} className="w-12 h-12" alt=""/>
+                            <p className="text-white font-bold text-center text-base">{data.artists.items[0].genres[0]}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <Link href={data.artists.items[0].external_urls.spotify} target="_blank">
+                    <Image src={Open} className="h-6 w-6 absolute top-1 right-1" alt="" width={500} height={500}/>
+                </Link>
             </div>
+            
+            }
         </>
     )
 }

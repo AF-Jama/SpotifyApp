@@ -1,6 +1,5 @@
 // import SideBar from "../../Components/SideBar";
 import ArtistSearch from "@/app/Components/ArtistSearch/ArtistSearch";
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { NextApiRequest, NextApiResponse, Redirect } from "next";
 import { cookies } from 'next/headers'
 import { redirect } from "next/navigation";

@@ -61,5 +61,29 @@ export interface SpotifyUser{
 
 }
 
+export interface Artist{
+    artists:{
+        href:string,
+        items:{
+            external_urls:{
+                spotify:string,
+            },
+            followers:{
+                total:number,
+            },
+            genres: Array<string>,
+            images:{
+                url:string,
+                height:number,
+                width:number,
+            }[],
+            name:string,
+            popularity:number,
+            type:string,
+            uri:string,
+        }[]
+    }
+}
+
 
 export default ServerSideProps;
