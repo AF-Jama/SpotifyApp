@@ -40,4 +40,4 @@ next-env.d.ts
 .vercel
 
 # next config 
-./next.config.js
+next.config.js
