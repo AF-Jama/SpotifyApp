@@ -32,7 +32,7 @@ const Page: React.FC = async  ()=>{
     <>
       <Header/>
 
-      <div id="hero-section-container" className={`text-white min-h-[calc(100vh-90px)] flex flex-col justify-center md:flex md:flex-row-reverse md:justify-start ${styles.heroBackground} z-0`}>
+      <div id="hero-section-container" className={`text-white min-h-[calc(100vh-20px)] flex flex-col justify-center md:flex md:flex-row-reverse md:justify-start ${styles.heroBackground} z-0`}>
           <div id="hero-text-container" className="rounded-md mx-auto p-5 text-center md:w-1/4 md:flex md:flex-col md:justify-center">
             <h1 className="text-xl my-1">Spotify Stats</h1>
 
@@ -54,12 +54,12 @@ const Page: React.FC = async  ()=>{
         </div>
       </div>
 
-    <div id="features-grid-container" className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-3 md:auto-rows-max min-h-[500px] p-5">    
+    {/* <div id="features-grid-container" className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-3 md:auto-rows-max min-h-[500px] p-5">    
       <div id="top-songs" className="bg-white rounded-md text-black px-2 py-8 md:relative md:top-0"> 
         <div className="flex flex-row items-center">
             <Image src={musicIcon} alt="" className="mr-1"/>
             <p className={`${roboto.className} text-xl`}>Show Your Top Songs</p>
-          </div>
+        </div>
 
           <p>
             Want to know what your Top Songs you have been listening to on your Spotify account? 
@@ -87,7 +87,7 @@ const Page: React.FC = async  ()=>{
           Create a custom playlist and add as many songs to it 
         </p>
       </div>
-    </div>
+    </div> */}
 
     </>
   )

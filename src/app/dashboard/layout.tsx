@@ -46,9 +46,9 @@ export default async function SiteLayout({
 
         <main className="ml-14">
           
-          <div id="inner-main-container" className="w-[95%] max-w-3xl mx-auto">
+          <div id="inner-main-container" className="w-[95%] max-w-3xl mx-auto relative">
 
-            <div id="user-info-container" className="border boder-white flex justify-between p-2 mb-5">
+            <div id="user-info-container" className="flex justify-between p-2 mb-5">
               <div className="flex gap-2 items-center">
                 <Image src={SpotifyLogo} alt="" className="h-7 w-7 md:h-10 md:w-10 rounded-sm"/>
                 <p className={`text-white ${roboto.className} text-lg`}>Stats</p>

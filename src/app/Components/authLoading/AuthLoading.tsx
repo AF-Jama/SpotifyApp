@@ -54,7 +54,7 @@ const Page: React.FC = ()=>{
         
     
     
-    },[]);
+    },[router,setAccessToken]);
 
 
 

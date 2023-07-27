@@ -24,7 +24,7 @@ const SideBar = ()=>{
             </div>
 
             <div id="artist-search-container-icon" className="rounded-md border-2 border-solid border-black">
-                <Link href={`/dashboard/create`} key={``}>
+                <Link href={`/dashboard/player`} key={``}>
                     <Image src={createPlaylistIcon} alt=""/>
                 </Link>
             </div>

@@ -39,7 +39,7 @@ const Page: React.FC<Props> = async ({ params }: { params :{ id:string } })=>{
     return (
         <div id="music-container" className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {data.playlists.items.map(item=>(
-                <Link href={item.external_urls.spotify} target="_blank">
+                <Link href={item.external_urls.spotify} target="_blank" key={item.id}>
                     <div id="playlist-container" className="flex gap-2">    
                         <div id="img-container" className="w-1/2 h-55">
                             <Image src={item.images[0].url} alt="" width={500} height={500} className="h-full w-full object-cover rounded-md"/>  

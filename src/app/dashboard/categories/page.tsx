@@ -60,7 +60,7 @@ const Page: React.FC<Props> = async ()=>{
             <div className="grid grid-cols-2 gap-2 mt-10 md:grid-cols-3 md:gap-4 lg:grid-cols-4 lg:gap-6 overflow-hidden">
                 {data.categories.items.map((cat)=>(
                     
-                <div className="flex flex-col overflow-hidden rounded-md relative hover:">
+                <div className="flex flex-col overflow-hidden rounded-md relative hover:" key={cat.id}>
                     <Link className="h-50 md:h-80 lg:h-100 block group" href={`/dashboard/categories/${cat.id}`}>
                         <Image src={cat.icons[0].url} width={500} height={500} className="h-full w-full object-cover" alt=""/>
                     </Link>

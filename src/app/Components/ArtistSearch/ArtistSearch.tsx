@@ -46,7 +46,7 @@ const ArtistSearch: React.FC<Props> = ({ accessToken })=>{
                 <input type="text" className="w-full p-2 rounded-md border-0 outline-none" placeholder="Search for artist" onChange={(e)=>setQuery(e.target.value)}/>
             </div>
 
-            {(error) && <Image src={Spinner} className="h-100 w-100" alt=""/>}
+            {(error) && <p className="text-white">Error</p>}
 
             {(isLoading) && <Image src={Spinner} className="h-20 w-20 m-auto mt-4" alt=""/>}
 
@@ -55,26 +55,26 @@ const ArtistSearch: React.FC<Props> = ({ accessToken })=>{
             {
             (data && !isLoading && !error && query) &&
             
-            <div className={`w-[95%] max-w-lg mt-2 m-auto relative ${(query)?"max-h-[1000px] transition-all duration-300 ease-in-out":"max-h-0 overflow-y-hidden transition-all duration-300 ease-in-out"}`}>
+            <div className={`w-[95%] max-w-md mt-2 m-auto relative ${(query)?"max-h-[1000px] transition-all duration-300 ease-in-out":"max-h-0 overflow-y-hidden transition-all duration-300 ease-in-out"}`}>
                 {/* <p className="text-red-700">{accessToken}</p> */}
-                <div className="h-45 w-full">
-                    <Image src={data.artists?.items[0].images[0].url} className="w-full h-full" width={500} height={500} alt=""/>
+                <div className="h-15 w-full">
+                    <Image src={data.artists?.items[0].images[0].url} className="w-full h-full rounded-md" width={500} height={500} alt=""/>
                 </div>
 
                 <div id="artist-info-container" className="mt-2">
                     <h1 className={`text-[#1DB954] ${roboto.className} text-lg text-center font-extrabold`}>{data.artists?.items[0].name}</h1>
 
-                    <div id="stats-container" className="grid grid-col-1 md:grid-cols-3 p-2">
-                        <div id="followers-container" className="mt-2 flex flex-row justify-center items-center gap-2">
-                            <Image src={Followers} className="w-12 h-12" alt=""/>
+                    <div id="stats-container" className="grid grid-col-1 md:grid-cols-3 p-2 content-center">
+                        <div id="followers-container" className="mt-2 flex flex-row items-center justify-center gap-2">
+                            <Image src={Followers} className="w-10 h-10" alt=""/>
                             <p className="text-white font-bold text-center text-base">{nFormatter(data.artists.items[0].followers.total,1)}</p>
                         </div>
-                        <div id="listens-container" className="mt-2 flex flex-row justify-center items-center gap-2">
-                            <Image src={Popularity} className="w-12 h-12" alt=""/>
+                        <div id="listens-container" className="mt-2 flex flex-row items-center justify-center gap-2">
+                            <Image src={Popularity} className="w-10 h-10" alt=""/>
                             <p className="text-white font-bold text-center text-base">{data.artists.items[0].popularity}</p>
                         </div>
-                        <div id="popularity-container" className="mt-2 flex flex-row justify-center items-center gap-2">
-                            <Image src={Genre} className="w-12 h-12" alt=""/>
+                        <div id="popularity-container" className="mt-2 flex flex-row items-center justify-center gap-2">
+                            <Image src={Genre} className="w-10 h-10" alt=""/>
                             <p className="text-white font-bold text-center text-base">{data.artists.items[0].genres[0]}</p>
                         </div>
                     </div>
