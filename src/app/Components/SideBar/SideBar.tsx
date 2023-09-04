@@ -11,20 +11,20 @@ import Image from "next/image";
 const SideBar = ()=>{
     return (
         <div id="side-bar-container" className="fixed left-0 top-0 bottom-0 p-2 w-14 flex flex-col items-center gap-5 bg-white">
-            <div id="artist-search-container-icon" className="rounded-md border-2 border-solid border-black" onClick={()=>window.location.href="/dashboard/search"}>
+            <div id="artist-search-container-icon" className="rounded-md border-2 border-solid border-black">
                 <Link href='/dashboard/search' key={``}>
                     <Image src={searchIcon} alt=""/>
                 </Link>
             </div>
 
-            <div id="artist-search-container-icon" className="rounded-md border-2 border-solid border-black" onClick={()=>window.location.href=""}>
+            <div id="artist-search-container-icon" className="rounded-md border-2 border-solid border-black">
                 <Link href={`/dashboard/categories`}>
                     <Image src={listIcon} alt=""/>
                 </Link>
             </div>
 
             <div id="artist-search-container-icon" className="rounded-md border-2 border-solid border-black">
-                <Link href={`/dashboard/player`} key={``}>
+                <Link href={`/dashboard/user/top`} key={``}>
                     <Image src={createPlaylistIcon} alt=""/>
                 </Link>
             </div>

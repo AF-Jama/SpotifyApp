@@ -85,5 +85,122 @@ export interface Artist{
     }
 }
 
+export interface ArtistTopItems{
+    href:string,
+    limit:number,
+    offset:number,
+    previous:string,
+    total:number,
+    items:{
+        album?:{
+            album_type:string,
+            total_tracks:string,
+            available_markets:Array<string>,
+            external_urls:{
+                spotify:string,
+            },
+            href:string,
+            images:{
+                url:string,
+                height:number,
+                width:number,
+            }[],
+            name:string,
+            release_date:string,
+        },
+        followers:{
+            href:string,
+            total:number,
+        }
+        genre:Array<string>,
+        href:string,
+        id:string,
+        images:{
+            url:string,
+            height:number,
+            width:number,
+        }[],
+        name:string,
+        popularity:number,
+        type:string,
+        uri:string
+    }[]
+}
+
+export interface TrackTopItems{
+    href:string,
+    limit:number,
+    offset:number,
+    previous:string,
+    total:number,
+    items:{
+        album:{
+            album_type:string,
+            total_tracks:string,
+            available_markets:Array<string>,
+            external_urls:{
+                spotify:string,
+            },
+            href:string,
+            images:{
+                url:string,
+                height:number,
+                width:number,
+            }[],
+            name:string,
+            release_date:string,
+        },
+        artists:{
+            followers:{
+                href:string,
+                total:number,
+            },
+        }[],
+        explicit:boolean,
+        name:string,
+        popularity:number,
+        type:string,
+        uri:string
+    }[]
+}
+
+// interface TopItems{
+//     href:string,
+//     limit:number,
+//     offset:number,
+//     previous:string,
+//     total:number,
+//     items:{
+//         album?:{
+//             album_type:string,
+//             total_tracks:string,
+//             available_markets:Array<string>,
+//             external_urls:{
+//                 spotify:string,
+//             },
+//             href:string,
+//             images:{
+//                 url:string,
+//                 height:number,
+//                 width:number,
+//             }[],
+//             name:string,
+//             release_date:string,
+//         },
+//         artists?:{
+//             followers:{
+//                 href:string,
+//                 total:number,
+//             },
+//         }[],
+//         name:string,
+//         popularity:number,
+//         type:string,
+//         uri:string
+//     }[]
+// }
+
+export type TopItems = ArtistTopItems | TrackTopItems // top items union
+
 
 export default ServerSideProps;

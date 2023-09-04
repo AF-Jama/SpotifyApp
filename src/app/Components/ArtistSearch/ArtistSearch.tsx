@@ -10,6 +10,7 @@ import Open from '../../../assets/images/open.svg';
 import Popularity from '../../../assets/images/popularity.svg';
 import Followers from '../../../assets/images/followers.svg';
 import Genre from '../../../assets/images/genre.svg';
+import noImageFound from '../../../assets/images/no-image-found.png';
 import { Roboto } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,12 +38,14 @@ const ArtistSearch: React.FC<Props> = ({ accessToken })=>{
 
     console.log(isLoading);
 
+    // console.log(data?.artists.items[0].images.length);
+
 
 
 
     return (
         <>
-            <div id="input-container" className=" w-[95%] max-w-lg m-auto">
+            <div id="input-container" className="  m-auto">
                 <input type="text" className="w-full p-2 rounded-md border-0 outline-none" placeholder="Search for artist" onChange={(e)=>setQuery(e.target.value)}/>
             </div>
 
@@ -58,7 +61,7 @@ const ArtistSearch: React.FC<Props> = ({ accessToken })=>{
             <div className={`w-[95%] max-w-md mt-2 m-auto relative ${(query)?"max-h-[1000px] transition-all duration-300 ease-in-out":"max-h-0 overflow-y-hidden transition-all duration-300 ease-in-out"}`}>
                 {/* <p className="text-red-700">{accessToken}</p> */}
                 <div className="h-15 w-full">
-                    <Image src={data.artists?.items[0].images[0].url} className="w-full h-full rounded-md" width={500} height={500} alt=""/>
+                    <Image src={(data.artists?.items[0]?.images.length===0)?noImageFound:data.artists?.items[0]?.images[0].url} className="w-full h-full rounded-md" width={500} height={500} alt=""/>
                 </div>
 
                 <div id="artist-info-container" className="mt-2">

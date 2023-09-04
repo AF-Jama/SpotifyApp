@@ -49,7 +49,7 @@ const Page: React.FC = async  ()=>{
 
         </div> */}
 
-        <div className={`md:w-3/4 md:block ${styles.leftImageContainer}`}>
+        <div className={`hidden md:w-3/4 md:block ${styles.leftImageContainer}`}>
 
         </div>
       </div>

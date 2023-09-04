@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react";  
 import AuthLoading from '../Components/authLoading/AuthLoading';
 import { Roboto } from "next/font/google";
 import Image from "next/image";
@@ -17,7 +17,7 @@ const Page: React.FC = ()=>{
 
 
     return (
-        <div id="main-container" className="fixed inset-y-0 inset-x-0 bg-black flex flex-col justify-center ">
+        <div id="main-container" className="min-h-screen flex flex-col justify-center ">
             <AuthLoading/>
         </div>   
     )
